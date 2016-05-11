@@ -7,8 +7,13 @@ msgProgressBar
 
 msgProgressBar is an equivalent to use txtProgressBar but uses `message()`instead of cat to print out the progress bar. This is good to use in R packages or in functions where one would like to supresse the progressbar using `suppressMessages()`.
 
-### Usage example
+### Installation
+Currently the package is not on CRAN. Please install directly from github:
+```
+devtools::install_github("MansMeg/msgProgressBar")
+```
 
+### Usage
 ```
 > test_bar <- function(i = 10){
 +   bar <- msgProgressBar::msgProgressBar(i)
