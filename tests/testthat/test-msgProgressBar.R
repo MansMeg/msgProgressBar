@@ -13,5 +13,9 @@ test_that(desc="expect working example",{
   expect_message(test_bar(100), regexp = "|=+|")
 })
 
+test_that(desc="expect silent constructor",{
+  expect_silent(msgProgressBar(100))
+})
+
 
 

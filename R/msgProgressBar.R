@@ -40,16 +40,27 @@ msgProgressBar <-
         .self$iter <- iter
         .self$i <- 0
         .self$progress <- 0
-        white_part <- paste(rep(" ", (.self$width - 11) %/% 4), collapse="")
-        init_length <- .self$width - ((.self$width - 11) %/% 4) * 4 - 11
-        white_init <- paste(rep(" ", init_length), collapse="")
-        .self$width_bar <- .self$width - init_length - 2 + 0.1
-        .self$progress_step <- .self$width_bar / .self$iter
-        message(paste(white_init, "|", white_part, "25%", white_part, "50%", white_part, "75%", white_part, "|","\n", white_init, "|", sep=""), appendLF = FALSE)
+        .self$width_bar <- 0
       },
       
       increment = function(){
         'Increment the message bar iterator.'
+        if(.self$i == 0){
+          white_part <- paste(rep(" ", (.self$width - 11) %/% 4), collapse="")
+          init_length <- .self$width - ((.self$width - 11) %/% 4) * 4 - 11
+          white_init <- paste(rep(" ", init_length), collapse="")
+          .self$width_bar <- .self$width - init_length - 2 + 0.1
+          .self$progress_step <- .self$width_bar / .self$iter
+          
+          message(paste(white_init, "|", 
+                        white_part, "25%", 
+                        white_part, "50%", 
+                        white_part, "75%", 
+                        white_part, "|","\n", 
+                        white_init, "|", sep=""), 
+                  appendLF = FALSE)
+        }
+        
         if(.self$i > .self$iter) return(invisible(NULL))
         new_progress <- .self$progress + .self$progress_step
         diff_in_char <- floor(new_progress) - floor(.self$progress)

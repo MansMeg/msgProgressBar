@@ -1,8 +1,8 @@
 Package: msgProgressBar
 Type: Package
 Title: Reference class for progress bar using message()
-Version: 0.1
-Date: 2016-05-11
+Version: 0.1.1
+Date: 2016-05-26
 Author: Mans Magnusson, Leo Lahti, Love Hansson
 Maintainer: Mans Magnusson <mons.magnusson@gmail.com>
 Description: The package contains a progress bar using message() to use instead of txtProgressBar.
